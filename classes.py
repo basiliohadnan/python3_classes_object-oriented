@@ -20,18 +20,23 @@ class Employee:
             )
       
       @property      
+      # property basic declaration
       def salary(self):
             return self._salary
       
       @salary.setter
+      # property setter, based on the declaration syntax
       def salary(self, salary):
             if (salary < 1000):
                   raise ValueError('Minimum wage is 1000.')
+            # resets annual salary value before changing it
             self._annual_salary = None
             self._salary = salary
 
       @property
+      # computed property
       def annual_salary(self):
+            # only modifies annual salary if it was not filled before
             if self._annual_salary is None:
                   self._annual_salary = self.salary * 12
             return self._annual_salary 
